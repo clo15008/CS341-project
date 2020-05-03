@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1><%= title %></h1>
+    <p>This is the placeholder for Ponder & Prove 02</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Add User -->
+  <div>
+    <form action="/p02/addBook" method="POST">
+      <label for="titleHeader">Title</label><br>
+      <input type="text" name="newTitle">
+      <br><label for="summary">Summary</label><br>
+      <input type="text" name="newSummary">
+      <br><br><button type="submit">Add Book</button>
+    </form>
+  </div>
+  <!-- Display List --> 
+  <div>
+    <h2>Books:</h2>
+    <% var i = 0; %>
+    <% for(title of titles) { %>
+      <h3><%= title %></h3>
+      <% if(i < summaries.length) { %>
+        <p><%= summaries %></p>
+      <% } else { %>
+        <% i++; %>
+      <% } %>
+
+    <% } %>
+  </div>
+</div>
+</body>
+</html>

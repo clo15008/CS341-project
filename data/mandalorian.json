@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Jango Fett",
+        "id": 1,
+        "description": "Bounty Hunter who was used as a template for the clones"
+    },
+    {
+        "name": "Boba Fett",
+        "id" : 2,
+        "description": "A clone of Jango Fett that ages normally"
+    }
+]

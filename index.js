@@ -17,7 +17,10 @@ const path = require('path');
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
 
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+const mongoose = require('mongoose');
+
+
 
 // Route setup. You can implement more in the future!
 const ta01Routes = require('./routes/ta01');
@@ -26,6 +29,7 @@ const ta03Routes = require('./routes/ta03');
 const ta04Routes = require('./routes/ta04'); 
 const p02Routes = require('./routes/p02');
 const p03Routes = require('./routes/p03');
+const p04Routes = require('./routes/p04');
 
 app.use(express.static(path.join(__dirname, 'public')))
    .set('views', path.join(__dirname, 'views'))
@@ -42,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')))
    .use('/ta04', ta04Routes)
    .use('/p02', p02Routes)
    .use('/p03', p03Routes)
+   .use('/p04', p04Routes)
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
      res.render('pages/index', {title: 'Welcome to my CSE341 repo', path: '/'});
@@ -50,7 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')))
      // 404 page
      res.render('pages/404', {title: '404 - Page Not Found', path: req.url})
    })
-   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  //  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 // MongoDB
 const corsOptions = {
@@ -67,5 +72,14 @@ const options = {
     family: 4
 };
 
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://<username>:<username>@cse341cluster-3dwlw.mongodb.net/test?retryWrites=true&w=majority";
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://user1:Fiji2014@cse341cluster-3dwlw.mongodb.net/test?retryWrites=true&w=majority";
+
+mongoose.connect('mongodb+srv://user1:Fiji2014@cluster0-7dvhb.mongodb.net/test?retryWrites=true&w=majority')
+.then(result => {
+  console.log(`Listening on ${ PORT }`); // This should be your user handling code implement following the course videos
+  app.listen(PORT);
+})
+.catch(err => {
+  console.log(err);
+});
                         

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+<div class="jumbotron text-center">
+  <h1>JSON</h1>
+  <div class="container">
+    <h1><%= title %></h1>
+    <p>This is the placeholder</p>
+  </div>
+</div>
+<div class="container">
+  <form action="/p04/added" method="post">
+    <div>
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName">
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" id="lastName">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input type="text" name="description" id="description">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+    
+</div>
+<!-- Insert product -->
+
+</body>
+</html>

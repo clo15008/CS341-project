@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+<div class="jumbotron text-center">
+  <h1>JSON</h1>
+  <div class="container">
+    <h1><%= title %></h1>
+    <p>This is the placeholder</p>
+  </div>
+</div>
+<div class="container"> <!-- this needs fixed -->
+    <form action="/p04/addProduct">
+        <button type="submit">Add Product</button>
+    </form>
+    <form action="/p04/removeProduct">
+        <button type="submit">Remove Product</button>
+    </form>
+</div>
+<!-- Insert product here -->
+
+</body>
+</html>

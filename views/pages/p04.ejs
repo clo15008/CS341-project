@@ -3,7 +3,9 @@
 <head>
   <% include ../includes/header.ejs %>
   <style>
-    
+    .block-info{
+      border-style: ridge;
+    }
   </style>
 </head>
 
@@ -25,6 +27,27 @@
     </form>
 </div>
 <!-- Insert product here -->
+<br><br><br>
+<div class="container">
+  <% for(var i=0; i<data.length; i++) {%>
+    <% if(i % 3 == 0) { %> 
+      <div class="info-collection">
+    <% } %>
+          <div class="block-info">
+            <!-- <img src="<%= data[i].imageUrl %>" class="card-img-top cImage"> -->
+            <div class="info-body">
+                <p>Name: <%= data[i].firstName %> <%= data[i].lastName %></p>
+                <p class="Description">Description: <%= data[i].description %></p>
+                <p class="_id">ID: <%= data[i]._id %></p>
+            </div>
+          </div>
+    <% if(i % 3 == 2) { %> 
+      </div> 
+      <br>
+    <% } %>
+  <% } %>
+</div>
+<br>
 
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+  <style>
+    .block-info{
+      border-style: ridge;
+    }
+  </style>
+</head>
+<body>
+<!-- <body style="background-color:" + <%= %>"> -->
+    
+  <% include ../includes/nav.ejs %>
+<div class="jumbotron text-center">
+  <h1>JSON</h1>
+  <div class="container">
+    <h1><%= title %></h1>
+  </div>
+</div>
+<div class="container"> <!-- this needs fixed -->
+    <form action="/p05/addUser" method="POST">
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="text" name="password" id="password">  
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<!-- Insert product here -->
+<br><br><br>
+<div class="container">
+</div>
+<br>
+
+</body>
+</html>

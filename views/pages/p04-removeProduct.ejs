@@ -3,19 +3,49 @@
 <head>
   <% include ../includes/header.ejs %>
   <style>
-    
-  </style>
+    .block-info{
+      border-style: ridge;
+    }
+    </style>
 </head>
 
 <body>
   <% include ../includes/nav.ejs %>
 <div class="jumbotron text-center">
-  <h1>JSON</h1>
+  <!-- <h1>JSON</h1> -->
   <div class="container">
     <h1><%= title %></h1>
-    <p>This is the placeholder</p>
+    <p>You will only see items you have added to the list</p>
   </div>
 </div>
+<div class="container">
+  <form action="/p04">
+    <button type="submit">View All Products</button>
+  </form>
+  <br><br><br>
+  <% for(var i=0; i<data.length; i++) {%>
+    <% if(i % 3 == 0) { %> 
+      <div class="info-collection">
+    <% } %>
+          <div class="block-info">
+            <!-- <img src="<%= data[i].imageUrl %>" class="card-img-top cImage"> -->
+            <div class="info-body">
+              <p>Name: <%= data[i].firstName %> <%= data[i].lastName %></p>
+              <p class="Description">Description: <%= data[i].description %></p>
+              <p class="_id">ID: <%= data[i]._id %></p>
+            </div>
+            <!-- <div>
+              <button type="submit" onclick=remove(data, <%= i %>)>Remove</button>
+            </div> -->
+            
+          </div>
+    <% if(i % 3 == 2) { %> 
+      </div> 
+      <br>
+    <% } %>
+  <% } %>
+</div>
+<br><br><br>
 <div class="container">
   <form action="/p04/removed" method="post">
     <div>
@@ -26,6 +56,23 @@
   </form>
 </div>
 <!-- Insert product -->
+<!-- <script>
+  function remove(id)
+  {
+    
+    const Product = require('../data/product');
+    
+
+    Product.findByIdAndDelete(id)
+        .then(() => {
+            console.log('Item Removed');
+            res.redirect('/p04');
+
+        })
+        .catch(err => console.log(err));
+    
+  }
+</script> -->
 
 </body>
 </html>

@@ -7,11 +7,10 @@
       border-style: ridge;
     }
     /* body {
-        background-color: <%= color %>;
     } */
   </style>
 </head>
-<body style=<%= color %>>
+<body>
 <!-- <body style="background-color:" + <%= %>"> -->
     
   <% include ../includes/nav.ejs %>
@@ -22,12 +21,18 @@
   </div>
 </div>
 <div class="container"> <!-- this needs fixed -->
-    <form action="/p05/authenticate" method="POST">
-        <label for="username">Username: </label>
-        <input type="text" name="username" id="username">
+    <form action="/p05/p05-postLogin" method="POST">
+      <div>
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="email">
+      </div>
+      <div>
         <label for="password">Password: </label>
         <input type="text" name="password" id="password">
+      </div>
+      <div>
         <button type="submit">Submit</button>
+      </div>
     </form>
 </div>
 <!-- Insert product here -->

@@ -19,8 +19,9 @@ const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localho
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
-
+app.use(session({secret: 'secret', resave: false, saveUninitialized: false}));
 
 // Route setup. You can implement more in the future!
 const ta01Routes = require('./routes/ta01');
@@ -65,6 +66,7 @@ const corsOptions = {
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
+
 
 const options = {
     useUnifiedTopology: true,

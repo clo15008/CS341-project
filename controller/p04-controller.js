@@ -2,7 +2,7 @@ const Product = require('../data/product');
 
 exports.renderAdd = (req, res, next) => {
     res.render('pages/p04-addProduct.ejs', { 
-        title: 'Prove 04', 
+        title: 'Add Item', 
         path: '/p04-addProduct', // For pug, EJS 
         activeTA03: true, // For HBS
         contentCSS: true, // For HBS
@@ -58,7 +58,7 @@ exports.getProducts = (req, res, next) => {
         }
         res.render('pages/p04.ejs', {
             data: products,
-            title: 'Prove 4',
+            title: 'Items',
             path: '/p04'
         });
     })

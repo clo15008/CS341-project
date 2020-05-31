@@ -67,16 +67,16 @@ exports.getProducts = (req, res, next) => {
     });
 }
 
-// exports.deleteProduct = (req, res, next) => {
-//     if(!req.session.isLoggedIn){
-//         res.redirect('/p04');
-//     }
-//     const prodId = req.body._id;
-//     Product.findByIdAndDelete(prodId)
-//         .then(() => {
-//             console.log('Item Removed');
-//             res.redirect('/p04');
+exports.deleteProduct = (req, res, next) => {
+    if(!req.session.isLoggedIn){
+        res.redirect('/p04');
+    }
+    const prodId = req.body._id;
+    Product.findByIdAndDelete(prodId)
+        .then(() => {
+            console.log('Item Removed');
+            res.redirect('/p04');
 
-//         })
-//         .catch(err => console.log(err));
-// };
+        })
+        .catch(err => console.log(err));
+};

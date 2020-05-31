@@ -13,6 +13,6 @@ router.get('/removeProduct', controller.renderRemove);
 
 router.post('/added', controller.addProduct);
 
-// router.post('/removed', controller.deleteProduct);
+router.post('/removed', controller.deleteProduct);
 
 module.exports = router;
